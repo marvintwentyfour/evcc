@@ -1,0 +1,33 @@
+template: ablv1
+products:
+  - brand: E.ON
+    description:
+      generic: EVSE101
+  - brand: E.ON
+    description:
+      generic: EVSE201
+  - brand: E.ON
+    description:
+      generic: EVSE203
+  - brand: E.ON
+    description:
+      generic: EVSE205
+params:
+  - name: id
+    type: int
+    required: true
+    default: 1
+    description:
+      de: Busadresse der Wallbox (1 .. 9)
+      en: bus address of the wallbox (1 .. 9)
+  - name: device
+    required: true
+    description:
+      de: Serieller Anschluss (USB-RS485-Adapter)
+      en: Serial port (USB-RS485 adapter)
+    type: string
+    default: /dev/ttyUSB0
+render: |
+  type: ablv1
+  id: {{ .id }}
+  device: {{ .device }}
